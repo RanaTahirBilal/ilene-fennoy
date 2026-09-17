@@ -1,0 +1,161 @@
+/* Ilene Fennoy site. Built on the MegaOne "education" demo shell (section ids kept).
+   All site styles use the if- prefix. Loaded last.
+   Palette follows the demo's teal and green family, darkened until it passes AA. */
+:root{
+  --if-ink:#13232B;       /* 16.12 on white */
+  --if-muted:#4A5961;     /*  7.26 on white, 6.78 on --if-soft */
+  --if-soft:#F3F8F9;
+  --if-acc:#0093AB;       /* rules, icons and 24px+ only (3.64 on white) */
+  --if-acc-ink:#006A7C;   /*  6.26 on white, 5.85 on --if-soft: small text on light */
+  --if-acc-lift:#6FD3E4;  /*  9.30 on --if-ink: small text on dark */
+  --if-green:#94CB00;     /* decorative bars only, the demo's green */
+  --if-line:#D9E4E7;
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Open Sans',Arial,sans-serif;color:var(--if-ink);background:#fff;font-size:17px;line-height:1.7;margin:0}
+h1,h2,h3,.if-brand{font-family:'Montserrat',Arial,sans-serif}
+a{color:var(--if-acc-ink)}
+a:hover{color:var(--if-ink)}
+img{max-width:100%;height:auto;display:block}
+p{color:var(--if-muted)}
+
+.if-skip{position:absolute;left:-999px;top:0;background:#fff;color:var(--if-ink);padding:8px 14px;z-index:100}
+.if-skip:focus{left:8px}
+
+/* Header: fixed at top (the demo pinned its nav to the foot of the hero) */
+.if-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(19,35,43,.94);backdrop-filter:blur(6px)}
+.if-header-row{display:flex;align-items:center;justify-content:space-between;height:68px}
+.if-brand{color:#fff;font-weight:800;font-size:19px;text-decoration:none;letter-spacing:.2px}
+.if-brand span{color:var(--if-acc-lift);font-weight:600}
+.if-brand:hover{color:#fff}
+.if-nav{display:flex;gap:26px;align-items:center}
+.if-nav a{color:#E6EEF1;font-weight:600;font-size:15px;text-decoration:none}
+.if-nav a:hover{color:var(--if-acc-lift)}
+.if-nav .if-nav-cta{background:var(--if-acc-lift);color:var(--if-ink);padding:8px 18px;border-radius:30px}
+.if-nav .if-nav-cta:hover{background:#fff;color:var(--if-ink)}
+.if-burger{display:none;background:none;border:0;color:#fff;font-size:24px;padding:6px 8px;cursor:pointer}
+
+.if-drawer{position:fixed;top:0;right:0;bottom:0;width:300px;max-width:85vw;background:var(--if-ink);z-index:60;transform:translateX(100%);transition:transform .3s ease;padding:70px 30px 30px;visibility:hidden}
+.if-drawer.is-open{transform:none;visibility:visible}
+.if-drawer nav a{display:block;color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:20px;text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.if-drawer nav a:hover{color:var(--if-acc-lift)}
+.if-drawer-close{position:absolute;top:18px;right:20px;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+.if-drawer-note{color:#C9D3D8;font-size:14px;margin-top:24px}
+
+/* Hero. The demo's .background-carousal carried a carousel and absolute slabs; reset them. */
+.if-hero{position:relative;min-height:100vh;padding:140px 0 90px;
+  background:#13232B url(../img/hero.jpg) center right/cover no-repeat;display:flex;align-items:center}
+.if-hero::before{content:"";position:absolute;inset:0; /* measured: lede needs the dark zone to reach ~60% */
+  background:linear-gradient(90deg,rgba(13,26,33,.93) 0%,rgba(13,26,33,.88) 44%,rgba(13,26,33,.5) 60%,rgba(13,26,33,0) 78%)}
+.if-hero .container{position:relative}
+.if-hero-text{max-width:660px}
+.if-hero-lede{max-width:560px}
+.if-hero h1{color:#fff;font-weight:800;font-size:48px;line-height:1.1;margin:10px 0 20px}
+.if-hero-lede{color:#E6EEF1;font-size:19px}
+.if-hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+
+.if-eyebrow{text-transform:uppercase;letter-spacing:2px;font-weight:700;font-size:13px;color:var(--if-acc-ink);margin-bottom:8px}
+.if-eyebrow-lift{color:var(--if-acc-lift)}
+
+.if-btn{display:inline-block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;padding:13px 28px;border-radius:40px;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.if-btn-solid{background:var(--if-acc-lift);color:var(--if-ink)}
+.if-btn-solid:hover{background:#fff;color:var(--if-ink)}
+.if-btn-ghost{border-color:#fff;color:#fff}
+.if-btn-ghost:hover{background:#fff;color:var(--if-ink)}
+
+.if-section{padding:96px 0}
+.if-soft{background:var(--if-soft)}
+.if-h2{font-size:36px;font-weight:700;line-height:1.2;margin-bottom:22px;color:var(--if-ink)}
+.if-h2::after{content:"";display:block;width:56px;height:4px;background:var(--if-green);margin-top:16px;border-radius:2px}
+.if-h3{font-size:22px;font-weight:700;margin:34px 0 14px}
+
+.if-figure{margin:0;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(19,35,43,.14)}
+.if-figure-tall{margin-top:28px;max-width:420px}
+
+.if-cards{margin-top:60px}
+.if-card{background:#fff;border:1px solid var(--if-line);border-top:4px solid var(--if-acc);border-radius:12px;padding:30px 26px;height:100%}
+.if-card i{font-size:30px;color:var(--if-acc);margin-bottom:14px}
+.if-card h3{font-size:20px;font-weight:700;margin-bottom:10px;color:var(--if-ink)}
+.if-card p{margin:0}
+.if-cards .col-md-4{margin-bottom:24px}
+.if-card-plain{border-top-color:var(--if-green)}
+
+.if-list{padding-left:18px;margin:0}
+.if-list li{color:var(--if-muted);margin-bottom:10px}
+.if-list strong{color:var(--if-ink)}
+.if-small{font-size:15px}
+
+.if-timeline{list-style:none;padding:0;margin:0;border-left:3px solid var(--if-acc)}
+.if-timeline li{position:relative;padding:0 0 22px 28px}
+.if-timeline li::before{content:"";position:absolute;left:-9px;top:6px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--if-acc)}
+.if-timeline h3{font-size:19px;font-weight:700;margin:0 0 2px;color:var(--if-ink)}
+.if-timeline p{margin:0}
+
+/* Quote bands */
+.if-band{position:relative;padding:110px 0;background:#13232B center/cover no-repeat;color:#fff}
+.if-band::before{content:"";position:absolute;inset:0;background:rgba(13,26,33,.84)}
+.if-band .container{position:relative;max-width:900px;text-align:center}
+.if-band-a{background-image:url(../img/company.jpg);background-position:center 30%}
+.if-band-b{background:linear-gradient(135deg,#13232B 0%,#0E3440 100%)}
+.if-band-b::before{display:none}
+.if-quote-portrait{width:150px;height:150px;object-fit:cover;object-position:center 22%;border-radius:50%;border:4px solid var(--if-acc-lift);margin:0 auto 28px}
+.if-quote{margin:0}
+.if-quote p{color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:32px;line-height:1.35}
+.if-quote footer{color:var(--if-acc-lift);font-weight:700;margin-top:14px;font-size:16px}
+.if-band-note{color:#E6EEF1;margin-top:24px;font-size:17px}
+
+.if-gallery figure{margin:0 0 24px;border-radius:12px;overflow:hidden}
+.if-gallery img{transition:transform .5s ease}
+.if-gallery figure:hover img{transform:scale(1.04)}
+.if-disclosure{margin-top:10px;padding:16px 20px;background:var(--if-soft);border-left:4px solid var(--if-acc);color:var(--if-ink);font-size:15px;border-radius:6px}
+
+/* Contact */
+.if-contact{background:var(--if-ink);padding:96px 0}
+.if-contact .if-h2{color:#fff}
+.if-contact p{color:#C9D3D8}
+.if-contact-line{color:#E6EEF1 !important}
+.if-contact-line i{color:var(--if-acc-lift);width:22px}
+.if-contact a{color:var(--if-acc-lift)}
+.if-contact a:hover{color:#fff}
+.if-form label{display:block;color:#fff;font-weight:600;font-size:15px;margin:14px 0 6px}
+.if-form input,.if-form textarea{width:100%;background:#1C3240;border:1px solid #3A5566;color:#fff;border-radius:8px;padding:12px 14px;font-size:16px}
+.if-form input:focus,.if-form textarea:focus{outline:2px solid var(--if-acc-lift);border-color:var(--if-acc-lift)}
+.if-form .if-btn{margin-top:8px}
+.if-form-note{margin:10px 0 6px}
+.if-honey{display:none !important}
+
+.if-foot{background:#0C1920;padding:22px 0}
+.if-foot p{color:#C9D3D8;margin:0;font-size:14px;text-align:center}
+
+a:focus-visible,button:focus-visible{outline:3px solid var(--if-acc-lift);outline-offset:2px}
+
+@media (max-width:991px){
+  .if-nav{display:none}
+  .if-burger{display:block}
+  .if-hero{background-position:72% center}
+  .if-hero::before{background:linear-gradient(180deg,rgba(13,26,33,.72) 0%,rgba(13,26,33,.9) 45%)}
+  .if-hero h1{font-size:40px}
+  .if-section{padding:70px 0}
+  .if-h2{font-size:30px}
+  .if-quote p{font-size:25px}
+}
+@media (max-width:575px){
+  .if-hero h1{font-size:34px}
+  .if-hero-lede{font-size:17px}
+  .if-brand span{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .if-drawer,.if-gallery img{transition:none}
+}
+
+/* bundle.min.css sets "a:focus, button:focus { color: inherit }" (0,1,1), which beats
+   single-class colours and made the focused drawer close button ink on ink. Restate them. */
+.if-drawer-close:focus,.if-burger:focus,.if-brand:focus{color:#fff}
+.if-nav a:focus{color:#E6EEF1}
+.if-nav .if-nav-cta:focus,.if-btn-solid:focus{color:var(--if-ink)}
+.if-btn-ghost:focus{color:#fff}
+.if-drawer nav a:focus{color:#fff}
+.if-contact a:focus{color:var(--if-acc-lift)}
+.if-skip:focus{color:var(--if-ink)}
